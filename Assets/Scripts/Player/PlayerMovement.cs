@@ -29,11 +29,9 @@ public class PlayerMovement : MonoBehaviour
 
       if (Input.GetButtonDown("Crouch"))
       {
-          Debug.Log("Setting crouch true");
           crouch = true;
       } else if (Input.GetButtonUp("Crouch"))
       {
-          Debug.Log("Setting crouch false");
           crouch = false;
       }
     }

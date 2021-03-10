@@ -216,10 +216,12 @@
             <e p="Move.cs" t="Include" />
           </e>
           <e p="Enemy" t="Include">
+            <e p="Bullet.cs" t="Include" />
             <e p="EnemyAI.cs" t="Include" />
             <e p="EnemyGFX.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
         </e>

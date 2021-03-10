@@ -56,6 +56,8 @@
      <Compile Include="Assets\Scripts\2D-Character-Controller-master\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyGFX.cs" />
      <Compile Include="Assets\Scripts\AutoMovement\Move.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/unity/inputoutput/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
