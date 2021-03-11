@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.Events;
 
 public class EnemyAI : MonoBehaviour
 {
-
     public Transform target;
 
     public float speed = 200f;
@@ -14,22 +14,25 @@ public class EnemyAI : MonoBehaviour
     public float nextWaypointDistance = 3f;
 
     public Transform enemyGFX;
+    public LayerMask layerMask;
 
+    public Transform shootPoint;
+
+    public UnityEvent OnMoveEvent;
+    public UnityEvent OnShootEvent;
+    public UnityEvent EndOfPath;
+    
+    [SerializeField] private GameObject prefabBullet;
+    [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
+    [SerializeField] private float timestamp;
+    [SerializeField] private int bulletSpeed = 8;
+    
     private Path path;
     private int currentWaypoint = 0;
     private bool endOfPath;
 
     private Seeker seeker;
     private Rigidbody2D rb;
-
-    public LayerMask layerMask;
-
-    public Transform shootPoint;
-    
-    [SerializeField] private GameObject prefabBullet;
-    [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
-    [SerializeField] private float timestamp;
-    [SerializeField] private int bulletSpeed = 8;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,7 @@ public class EnemyAI : MonoBehaviour
         if (currentWaypoint >= path.vectorPath.Count)
         {
             endOfPath = true;
+            EndOfPath?.Invoke();
             return;
         } else
         {
@@ -58,7 +62,9 @@ public class EnemyAI : MonoBehaviour
         Vector2 direction = ((Vector2) path.vectorPath[currentWaypoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
+        
         rb.AddForce(force);
+        OnMoveEvent?.Invoke();
         
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
@@ -71,7 +77,8 @@ public class EnemyAI : MonoBehaviour
                 Debug.Log("Able to hit player");
                 if (Time.time >= timestamp)
                 {
-                   Shoot();
+                    Shoot();
+                    OnShootEvent?.Invoke();
                 }
             }
         }
@@ -88,6 +95,15 @@ public class EnemyAI : MonoBehaviour
         {
             enemyGFX.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        if (force.y >= 0.5f)
+        {
+            Debug.Log("Going up");
+        } else if (force.y <= -0.01f)
+        {
+            Debug.Log("Going down");
+        }
+        
     }
 
     void UpdatePath()
@@ -135,7 +151,7 @@ public class EnemyAI : MonoBehaviour
             return false;
         }
         
-        if (hit.collider.gameObject.name.Equals("Player"))
+        if (hit.collider.gameObject.tag.Equals("Player"))
         {
             return true;
         }

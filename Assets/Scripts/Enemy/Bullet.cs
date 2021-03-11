@@ -20,9 +20,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.name.Equals("Player"))
+        if (!other.gameObject.tag.Equals("Player"))
          {
-             Debug.Log("Destroying");
+             Debug.Log("Hitted player");
              gameObject.active = false;
              return;
          }
