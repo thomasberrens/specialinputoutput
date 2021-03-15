@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Object = System.Object;
 
 public class Bullet : MonoBehaviour
 {
@@ -23,12 +22,8 @@ public class Bullet : MonoBehaviour
         if (!other.gameObject.tag.Equals("Player"))
          {
              Debug.Log("Hitted player");
-             gameObject.active = false;
-             return;
          }
-        else
-        {
-            gameObject.active = false;
-        }
+        
+        gameObject.active = false;
     }
 }

@@ -205,14 +205,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35992719}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.72, y: 0.17, z: 0}
-  m_LocalScale: {x: 5.1815248, y: 5.089993, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.7199993, y: 0.17000008, z: 0}
+  m_LocalScale: {x: 5.1815243, y: 5.089993, z: 1}
   m_Children:
   - {fileID: 744447822}
   - {fileID: 1343390862}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &35992722
 CircleCollider2D:
@@ -375,8 +375,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7abb8b6e3f17984b8dcc471983461db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  animator: {fileID: 35992727}
+  health: 20
+  OnHurtEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPlayerDeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!850595691 &55802794
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -3302,6 +3307,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &776878969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776878970}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &776878970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776878969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.47723618, y: -0.38349822, z: -3.023435}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &815753953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5269,7 +5304,7 @@ Transform:
   m_Children:
   - {fileID: 1835529642}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1185018565
 MonoBehaviour:
@@ -5291,6 +5326,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   shootPoint: {fileID: 1731292536}
+  OnMoveEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShootEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  EndOfPath:
+    m_PersistentCalls:
+      m_Calls: []
   prefabBullet: {fileID: 7979926719001603809, guid: 40fe0a64a494de944bb18dc0b57fe000,
     type: 3}
   timeBetweenShots: 0.3333
