@@ -216,6 +216,10 @@
           <e p="2D-Character-Controller-master" t="Include">
             <e p="CharacterController2D.cs" t="Include" />
           </e>
+          <e p="ArduinoInput" t="Include">
+            <e p="ArduinoInput.cs" t="Include" />
+            <e p="Test.cs" t="Include" />
+          </e>
           <e p="AutoMovement" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="Move.cs" t="Include" />
@@ -224,6 +228,7 @@
             <e p="Bullet.cs" t="Include" />
             <e p="EnemyAI.cs" t="Include" />
             <e p="EnemyGFX.cs" t="Include" />
+            <e p="EnemyHealth.cs" t="Include" />
           </e>
           <e p="Manager" t="Include">
             <e p="EventManager.cs" t="Include" />

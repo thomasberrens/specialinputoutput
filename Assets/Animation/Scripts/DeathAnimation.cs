@@ -14,7 +14,14 @@ public class DeathAnimation : StateMachineBehaviour
         _gameObject = animator.gameObject;
         rb = _gameObject.GetComponent<Rigidbody2D>();
         
+        if (rb == null)
+        {
+            Debug.Log("RIGIDBODY2D IS NULL, CHECK THIS GAMEOBJECT: " + _gameObject.name);
+            return;
+        }
+        
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -341,8 +341,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356fe2571ca1de84baaf0acff5f539d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 35992725}
-  animator: {fileID: 35992727}
   runSpeed: 40
 --- !u!95 &35992727
 Animator:
@@ -3992,6 +3990,68 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1 &889798848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 889798851}
+  - component: {fileID: 889798850}
+  - component: {fileID: 889798849}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &889798849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889798848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6116be71fef3454cb46e72fd2698111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serialPortName: \\.\COM3
+  _bautrate: 9600
+  arduinoLightValues:
+    L1: 0
+    L2: 0
+--- !u!114 &889798850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889798848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdeee758fab0e94b9794bf76369d95e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ai: {fileID: 889798849}
+--- !u!4 &889798851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889798848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2078524, y: -0.66400206, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932065675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,9 +5382,6 @@ MonoBehaviour:
   speed: 400
   nextWaypointDistance: 3
   enemyGFX: {fileID: 1835529642}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 512
   shootPoint: {fileID: 1731292536}
   OnMoveEvent:
     m_PersistentCalls:

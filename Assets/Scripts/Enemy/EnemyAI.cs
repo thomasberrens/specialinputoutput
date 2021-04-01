@@ -7,16 +7,20 @@ using UnityEngine.Events;
 
 public class EnemyAI : MonoBehaviour
 {
-    public Transform target;
+    [SerializeField]
+    private Transform target;
 
-    public float speed = 200f;
+    [SerializeField]
+    private float speed = 200f;
 
-    public float nextWaypointDistance = 3f;
+    [SerializeField]
+    private float nextWaypointDistance = 3f;
 
-    public Transform enemyGFX;
-    public LayerMask layerMask;
+    [SerializeField]
+    private Transform enemyGFX;
 
-    public Transform shootPoint;
+    [SerializeField]
+    private Transform shootPoint;
 
     public UnityEvent OnMoveEvent;
     public UnityEvent OnShootEvent;
@@ -35,7 +39,7 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -45,11 +49,10 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (path == null) return;
         if (target == null) return;
-        
 
         if (currentWaypoint >= path.vectorPath.Count)
         {
@@ -108,7 +111,7 @@ public class EnemyAI : MonoBehaviour
         
     }
 
-    void UpdatePath()
+    private void UpdatePath()
     {
         if (seeker.IsDone())
         {
@@ -117,7 +120,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void OnPathComplete(Path p)
+    private void OnPathComplete(Path p)
     {
         if (!p.error)
         {
