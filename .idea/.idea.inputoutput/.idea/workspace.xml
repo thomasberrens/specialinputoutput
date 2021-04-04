@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="572508da-ae2b-48a5-a8ea-45b06e9116a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Bird/BirdGFX.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Bird/BirdGFX.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Player/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Player/Player.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animation/Scripts/DeathAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animation/Scripts/DeathAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AstarPathfindingProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AstarPathfindingProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AstarPathfindingProjectEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AstarPathfindingProjectEditor.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PackageToolsEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PackageToolsEditor.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/AstarPathfindingProject.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/AstarPathfindingProject.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/PackageToolsEditor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/PackageToolsEditor.csprojAssemblyReference.cache" afterDir="false" />
@@ -114,7 +105,8 @@
       <workItem from="1615813201799" duration="9102000" />
       <workItem from="1615893413625" duration="1191000" />
       <workItem from="1617271962421" duration="202000" />
-      <workItem from="1617272184680" duration="4317000" />
+      <workItem from="1617272184680" duration="5575000" />
+      <workItem from="1617525393006" duration="3275000" />
     </task>
     <servers />
   </component>
@@ -128,7 +120,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

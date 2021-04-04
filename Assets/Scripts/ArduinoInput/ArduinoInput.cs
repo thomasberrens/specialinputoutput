@@ -39,7 +39,6 @@ public class ArduinoInput : MonoBehaviour {
         );
     }
     private void SetResult(string str){
-        Debug.Log(str);
         this.arduinoLightValues = SplitString(str);
     }
     
@@ -93,7 +92,7 @@ public class ArduinoInput : MonoBehaviour {
             //Debug.LogError("Splitting Error");
             return new Pair(0, 0);
         }
-        Debug.Log(str);
+     //   Debug.Log(str);
         return new Pair(int.Parse(split[0]), int.Parse(split[1]));
     }
 
