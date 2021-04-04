@@ -36,7 +36,6 @@ public class PlayerHealth : MonoBehaviour
             {
                 OnPlayerDeathEvent?.Invoke();
                 animator.SetTrigger(Values.DeathAnimation);
-                
             }
             else
             {

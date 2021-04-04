@@ -75,22 +75,24 @@ public class PlayerMovement : MonoBehaviour
         }
         //    horizontalmove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Math.Abs(horizontalmove));
+        
+        if (isInIntRange(LightValue2, crouchMap))
+        {
+            crouch = true;
+        } else if (crouch)
+        {
+            crouch = false;
+        }
 
-        if (needToJump() && !jump)
+
+        if (needToJump() && !crouch)
         {
             Debug.Log("Needs to jump");
             jump = true;
             animator.SetBool("isJumping", true);
         } 
 
-        if (isInIntRange(LightValue2, crouchMap))
-        {
-            crouch = true;
-        } else
-        {
-            if (!crouch) return;
-            crouch = false;
-        } 
+
     }
 
     private void FixedUpdate()
@@ -114,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 hitDirection = (Vector2) shootPoint.position - rb.position;
 
         GetComponent<Collider2D>().enabled = false;
-        RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, hitDirection, 10f);
+        RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, hitDirection, 2f);
         GetComponent<Collider2D>().enabled = true;
 
         if (hit.collider == null)
