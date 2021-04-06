@@ -6,6 +6,7 @@ public class DeathAnimation : StateMachineBehaviour
 {
     private GameObject _gameObject;
     private Rigidbody2D rb;
+    private GameObject _parentObject;
     
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -16,8 +17,17 @@ public class DeathAnimation : StateMachineBehaviour
         
         if (rb == null)
         {
-            Debug.Log("RIGIDBODY2D IS NULL, CHECK THIS GAMEOBJECT: " + _gameObject.name);
-            return;
+            
+            if (_gameObject.transform.parent.GetComponent<Rigidbody2D>() == null)
+            {
+                Debug.Log("RIGIDBODY2D IS NULL, CHECK THIS GAMEOBJECT: " + _gameObject.name); 
+                return;
+            } else {
+                rb = _gameObject.transform.parent.GetComponent<Rigidbody2D>();
+                _parentObject = _gameObject.transform.parent.gameObject;
+            }
+            
+            
         }
         
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -33,7 +43,15 @@ public class DeathAnimation : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Destroy(_gameObject);
+        if (_parentObject != null)
+        {
+            Destroy(_gameObject.transform.parent.gameObject);
+        }
+
+        if (_gameObject != null)
+        {
+            Destroy(_gameObject);
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

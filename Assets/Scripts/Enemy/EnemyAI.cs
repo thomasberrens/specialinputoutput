@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
     [SerializeField] private float timestamp;
     [SerializeField] private int bulletSpeed = 8;
-    
+
     private Path path;
     private int currentWaypoint = 0;
     private bool endOfPath;
@@ -44,6 +44,7 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
+        
         InvokeRepeating("UpdatePath", 0f, .5f);
         
     }

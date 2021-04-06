@@ -5,23 +5,30 @@ using UnityEngine;
 public class EnemyFinder : MonoBehaviour
 {
     private ArrayList enemyObjects;
+    private ArrayList removalCache;
     
     [SerializeField] private Transform shootPoint;
     // Start is called before the first frame update
     void Start()
     {
         this.enemyObjects = new ArrayList();
+        this.removalCache = new ArrayList();
         AddObjectsToList();
         shootPoint = gameObject.transform.Find(Values.ShootPoint);
     }
-    
+
     public GameObject GetNearestTarget()
     {
         GameObject bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
-        foreach(GameObject potentialTarget in enemyObjects)
+        foreach(GameObject potentialTarget in enemyObjects.ToArray())
         {
+            if (potentialTarget == null)
+            {
+                this.enemyObjects.Remove(potentialTarget);
+                continue;
+            }
               if (!CanHitEnemy(potentialTarget))
              {
                   Debug.Log("Found a near enemy, but it is impossible to shoot him");

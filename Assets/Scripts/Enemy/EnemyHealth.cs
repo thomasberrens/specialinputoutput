@@ -7,9 +7,9 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private float health = 100;
+    private float health = 10;
     
-    private Animator animator;
+    [SerializeField] private Animator animator;
 
     private Rigidbody2D rb;
     
@@ -19,14 +19,13 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag.Equals("Bullet"))
+        if (collision.gameObject.tag.Equals(Values.Bullet))
         {
             health -= 5;
             
@@ -36,6 +35,8 @@ public class EnemyHealth : MonoBehaviour
                 animator.SetTrigger(Values.DeathAnimation);
                 
             }
+            
+            Destroy(collision.gameObject);
         }
     }
 }

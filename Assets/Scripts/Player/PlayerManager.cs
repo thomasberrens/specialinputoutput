@@ -61,6 +61,10 @@ public class PlayerManager : MonoBehaviour
 
         if (collision.gameObject.tag.Equals(Values.Bullet))
         {
+            if (collision.gameObject.layer.Equals(9))
+            {
+                return;
+            }
             OnHurtEvent?.Invoke();
            _playerHealth.SubtractHealth(5);
             
@@ -73,6 +77,8 @@ public class PlayerManager : MonoBehaviour
             {
                 StartCoroutine(handleHurtAnimation());
             }
+            
+            Destroy(collision.gameObject);
         }
     }
 

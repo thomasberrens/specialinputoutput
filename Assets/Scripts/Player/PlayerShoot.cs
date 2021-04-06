@@ -7,7 +7,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private GameObject prefabBullet;
     [SerializeField] private Transform shootPoint;
-    
+
     [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
     [SerializeField] private float timestamp;
     [SerializeField] private int bulletSpeed = 10;
@@ -77,10 +77,12 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
         Debug.Log("Target = " + currentTarget.name);
+        
         GameObject bullet =
             Instantiate(prefabBullet, shootPoint.position, Quaternion.identity) as GameObject;
         timestamp = Time.time + timeBetweenShots;
-                    
+        bullet.layer = 9;
+
         bullet.GetComponent<Rigidbody2D>().velocity = (currentTarget.transform.position - shootPoint.position).normalized * bulletSpeed;
     }
 }
