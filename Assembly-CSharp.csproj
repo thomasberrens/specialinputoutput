@@ -53,17 +53,18 @@
      <Compile Include="Assets\Scripts\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Animation\Scripts\DeathAnimation.cs" />
      <Compile Include="Assets\Scripts\ArduinoInput\Test.cs" />
-     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\ArduinoInput\ArduinoInput.cs" />
      <Compile Include="Assets\Scripts\2D-Character-Controller-master\CharacterController2D.cs" />
-     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyGFX.cs" />
      <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\EnemyFinder.cs" />
      <Compile Include="Assets\Scripts\Values.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyShoot.cs" />
+     <Compile Include="Assets\Scripts\Enemy\EnemyManager.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/unity/inputoutput/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

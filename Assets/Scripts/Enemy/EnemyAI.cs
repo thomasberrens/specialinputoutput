@@ -19,17 +19,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private Transform enemyGFX;
 
-    [SerializeField]
-    private Transform shootPoint;
-
     public UnityEvent OnMoveEvent;
-    public UnityEvent OnShootEvent;
     public UnityEvent EndOfPath;
-    
-    [SerializeField] private GameObject prefabBullet;
-    [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
-    [SerializeField] private float timestamp;
-    [SerializeField] private int bulletSpeed = 8;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -44,7 +35,6 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        
         InvokeRepeating("UpdatePath", 0f, .5f);
         
     }
@@ -73,21 +63,6 @@ public class EnemyAI : MonoBehaviour
         OnMoveEvent?.Invoke();
         
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
-        if (distanceWithTarget() <= 12)
-        {
-            Debug.Log("In range");
-            
-            if (CanHitPlayer())
-            {
-                Debug.Log("Able to hit player");
-                if (Time.time >= timestamp)
-                {
-                    Shoot();
-                    OnShootEvent?.Invoke();
-                }
-            }
-        }
 
         if (distance < nextWaypointDistance)
         {
@@ -128,41 +103,5 @@ public class EnemyAI : MonoBehaviour
             path = p;
             currentWaypoint = 0;
         }
-    }
-    
-    private float distanceWithTarget()
-    {
-        return Vector2.Distance(rb.position, target.position);
-    }
-
-    private void Shoot()
-    {
-        Debug.Log("Shooting");
-        GameObject bullet =
-            Instantiate(prefabBullet, shootPoint.position, Quaternion.identity) as GameObject;
-        timestamp = Time.time + timeBetweenShots;
-                    
-        bullet.GetComponent<Rigidbody2D>().velocity = (shootPoint.position - rb.transform.position).normalized * bulletSpeed;
-    }
-
-    private bool CanHitPlayer()
-    {
-        Vector2 hitDirection = (Vector2) shootPoint.position - rb.position;
-
-        GetComponent<Collider2D>().enabled = false;
-        RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, hitDirection, 100f);
-        GetComponent<Collider2D>().enabled = true;
-
-        if (hit.collider == null)
-        {
-            return false;
-        }
-        
-        if (hit.collider.gameObject.tag.Equals(Values.PlayerTag))
-        {
-            return true;
-        }
-
-        return false;
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField]
     private float health = 100;
@@ -23,9 +23,6 @@ public class PlayerHealth : MonoBehaviour
     {
         this.health -= subtractValue;
     }
-
-
-    
 }
 
 

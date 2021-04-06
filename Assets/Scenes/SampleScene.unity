@@ -218,7 +218,6 @@ Transform:
   - {fileID: 1650588074}
   - {fileID: 2127882745}
   - {fileID: 1762745629}
-  - {fileID: 1549721698}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,9 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabBullet: {fileID: 7979926719001603809, guid: 40fe0a64a494de944bb18dc0b57fe000,
     type: 3}
-  shootPoint1: {fileID: 0}
-  shootPoint2: {fileID: 1549721698}
-  currentShootPoint: {fileID: 0}
+  shootPoint: {fileID: 0}
   timeBetweenShots: 0.3333
   timestamp: 0
   bulletSpeed: 8
@@ -5348,7 +5345,9 @@ GameObject:
   - component: {fileID: 1185018562}
   - component: {fileID: 1185018565}
   - component: {fileID: 1185018566}
+  - component: {fileID: 1185018568}
   - component: {fileID: 1185018567}
+  - component: {fileID: 1185018569}
   m_Layer: 10
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -5431,21 +5430,12 @@ MonoBehaviour:
   speed: 400
   nextWaypointDistance: 3
   enemyGFX: {fileID: 1835529642}
-  shootPoint: {fileID: 1731292536}
   OnMoveEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnShootEvent:
     m_PersistentCalls:
       m_Calls: []
   EndOfPath:
     m_PersistentCalls:
       m_Calls: []
-  prefabBullet: {fileID: 7979926719001603809, guid: 40fe0a64a494de944bb18dc0b57fe000,
-    type: 3}
-  timeBetweenShots: 0.3333
-  timestamp: 0
-  bulletSpeed: 10
 --- !u!50 &1185018566
 Rigidbody2D:
   serializedVersion: 4
@@ -5476,14 +5466,49 @@ MonoBehaviour:
   m_GameObject: {fileID: 1185018561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20e8aab126ad8c419ffb89345933d61, type: 3}
+  m_Script: {fileID: 11500000, guid: e7abb8b6e3f17984b8dcc471983461db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
-  animator: {fileID: 1835529643}
+  health: 0
+--- !u!114 &1185018568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185018561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a17ddde5fe84f1285cbc695e3e62ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  prefabBullet: {fileID: 7979926719001603809, guid: 40fe0a64a494de944bb18dc0b57fe000,
+    type: 3}
+  timeBetweenShots: 0.3333
+  timestamp: 0
+  bulletSpeed: 10
+  shootPoint: {fileID: 1731292536}
+  maxDistanceWithTarget: 12
+  OnShootEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1185018569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185018561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0295c151d75f4861aedc091dab7e6cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   OnEnemyDeathEvent:
     m_PersistentCalls:
       m_Calls: []
+  _animator: {fileID: 1835529643}
 --- !u!1 &1216573575
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,36 +8001,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &1549721697
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1549721698}
-  m_Layer: 0
-  m_Name: shootPoint2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1549721698
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549721697}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.172, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 35992721}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590678160
 GameObject:
   m_ObjectHideFlags: 0
@@ -8685,7 +8680,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650588073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.107, y: 0.015, z: 0}
+  m_LocalPosition: {x: 0.008, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 35992721}

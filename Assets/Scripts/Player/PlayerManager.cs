@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerManager : MonoBehaviour
 {
     private EnemyFinder _enemyFinder;
-    private PlayerHealth _playerHealth;
+    private Health _playerHealth;
     private PlayerMovement _playerMovement;
     private PlayerShoot _playerShoot;
     private Animator _animator;
@@ -24,11 +24,11 @@ public class PlayerManager : MonoBehaviour
             _enemyFinder = GetComponent<EnemyFinder>();
         }
 
-        _playerHealth = GetComponent<PlayerHealth>();
+        _playerHealth = GetComponent<Health>();
         if (_playerHealth == null)
         {
-            gameObject.AddComponent<PlayerHealth>();
-            _playerHealth = GetComponent<PlayerHealth>();
+            gameObject.AddComponent<Health>();
+            _playerHealth = GetComponent<Health>();
         }
         
         _playerShoot = GetComponent<PlayerShoot>();
