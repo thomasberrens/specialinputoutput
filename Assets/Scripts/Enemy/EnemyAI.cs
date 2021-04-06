@@ -157,7 +157,7 @@ public class EnemyAI : MonoBehaviour
             return false;
         }
         
-        if (hit.collider.gameObject.tag.Equals("Player"))
+        if (hit.collider.gameObject.tag.Equals(Values.PlayerTag))
         {
             return true;
         }

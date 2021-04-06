@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private float runSpeed = 40f;
     
     [SerializeField]
+    private Transform jumpPoint;
     private Transform shootPoint;
     [SerializeField]
     private Transform crouchPoint;
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         
-        for (int i = 0; i < 50; i++)
+        for (int i = -20; i < 50; i++)
         {
             leftMap.Add(i);
         }
@@ -50,9 +51,12 @@ public class PlayerMovement : MonoBehaviour
             crouchMap.Add(i);
         }
         
+        jumpPoint = gameObject.transform.Find(Values.JumpPoint);
+        shootPoint = gameObject.transform.Find(Values.ShootPoint);
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
+        ai = GetComponent<ArduinoInput>();
     }
 
     // Update is called once per frame
@@ -64,10 +68,13 @@ public class PlayerMovement : MonoBehaviour
         if (isInIntRange(LightValue1, rightMap))
         {
             horizontalmove = 1 * runSpeed;
+            
+            shootPoint.Rotate(new Vector2(180, 0));
         }
         else if (isInIntRange(LightValue1, leftMap))
         {
             horizontalmove = -1 * runSpeed;
+            shootPoint.Rotate(new Vector2(180, 0));
         }
         else
         {
@@ -90,8 +97,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Needs to jump");
             jump = true;
             animator.SetBool("isJumping", true);
-        } 
-
+        }
 
     }
 
@@ -113,10 +119,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool needToJump()
     {
-        Vector2 hitDirection = (Vector2) shootPoint.position - rb.position;
+        Vector2 hitDirection = (Vector2) jumpPoint.position - rb.position;
 
         GetComponent<Collider2D>().enabled = false;
-        RaycastHit2D hit = Physics2D.Raycast(shootPoint.position, hitDirection, 2f);
+        RaycastHit2D hit = Physics2D.Raycast(jumpPoint.position, hitDirection, 2f);
         GetComponent<Collider2D>().enabled = true;
 
         if (hit.collider == null)
@@ -124,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
         
-        if (hit.collider.gameObject.tag.Equals("Obstacle"))
+        if (hit.collider.gameObject.tag.Equals(Values.ObstacleTag))
         {
             return true;
         }

@@ -227,9 +227,13 @@
             <e p="EnemyHealth.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="EnemyFinder.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
+            <e p="PlayerManager.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
+            <e p="PlayerShoot.cs" t="Include" />
           </e>
+          <e p="Values.cs" t="Include" />
         </e>
       </e>
       <e p="AstarPathfindingProject.csproj" t="IncludeRecursive" />
