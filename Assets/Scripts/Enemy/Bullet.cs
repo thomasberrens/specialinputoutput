@@ -19,5 +19,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag.Equals(Values.PlayerTag)) return;
+        Destroy(gameObject);
+        // garbage code, vergeef me C# docenten
     }
 }

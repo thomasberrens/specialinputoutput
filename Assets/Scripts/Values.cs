@@ -8,5 +8,11 @@
         Bullet = "Bullet",
         ShootPoint = "shootPoint",
         ObstacleTag = "Obstacle",
-        JumpPoint = "jumpPoint";
+        DialogueManagerTag = "DialogueManager",
+        ContinueButtonTag = "ContinueButton",
+        JumpPoint = "jumpPoint",
+        PlayableTutorialScene = "PlayableTutorial",
+        FinishedTutorialScene = "FinishedTutorial",
+        GameScene = "Game",
+        DeathScene = "DeathScene";
 }

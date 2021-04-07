@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private float runSpeed = 40f;
+   [SerializeField] private float maxDistanceForJump = 1.5f;
     
     [SerializeField]
     private Transform jumpPoint;
@@ -24,31 +26,45 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jump;
     private bool crouch;
+
+    public bool MayMove = true;
     
     [SerializeField] private ArduinoInput ai;
     private ArrayList leftMap = new ArrayList();
     private ArrayList rightMap = new ArrayList();
     private ArrayList crouchMap = new ArrayList();
+    private ArrayList idleMap = new ArrayList();
 
     private int LightValue1;
     private int LightValue2;
 
+    public UnityEvent OnMoveLeft;
+    public UnityEvent OnMoveRight;
+    public UnityEvent OnIdle;
+    public UnityEvent OnCrouch;
+    public UnityEvent OnJump;
+
     private void Start()
     {
         
-        for (int i = -20; i < 50; i++)
+        for (int i = -5; i < 50; i++)
         {
             leftMap.Add(i);
         }
         
-        for (int i = 50; i < 120; i++)
+        for (int i = 50; i < 110; i++)
         {
             rightMap.Add(i);
         }
         
-        for (int i = 0; i < 45; i++)
+        for (int i = 0; i < 40; i++)
         {
             crouchMap.Add(i);
+        }
+
+        for (int i = 45; i < 55; i++)
+        {
+            idleMap.Add(i);
         }
         
         jumpPoint = gameObject.transform.Find(Values.JumpPoint);
@@ -65,27 +81,32 @@ public class PlayerMovement : MonoBehaviour
         LightValue1 = ai.arduinoLightValues.L1;
         LightValue2 = ai.arduinoLightValues.L2;
 
-        if (isInIntRange(LightValue1, rightMap))
+        if (!MayMove) return;
+
+        if (isInIntRange(LightValue1, idleMap) && isInIntRange(LightValue2, idleMap))
+        {
+            horizontalmove = 0;
+            OnIdle?.Invoke();
+        } else if (isInIntRange(LightValue1, rightMap))
         {
             horizontalmove = 1 * runSpeed;
+            OnMoveRight?.Invoke();
             
-            shootPoint.Rotate(new Vector2(180, 0));
         }
         else if (isInIntRange(LightValue1, leftMap))
         {
             horizontalmove = -1 * runSpeed;
-            shootPoint.Rotate(new Vector2(180, 0));
+            OnMoveLeft?.Invoke();
         }
-        else
-        {
-            horizontalmove = 0;
-        }
+
+
         //    horizontalmove = Input.GetAxisRaw("Horizontal") * runSpeed;
         animator.SetFloat("Speed", Math.Abs(horizontalmove));
         
         if (isInIntRange(LightValue2, crouchMap))
         {
             crouch = true;
+            OnCrouch?.Invoke();
         } else if (crouch)
         {
             crouch = false;
@@ -94,9 +115,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (needToJump() && !crouch)
         {
-            Debug.Log("Needs to jump");
             jump = true;
             animator.SetBool("isJumping", true);
+            OnJump?.Invoke();
         }
 
     }
@@ -121,9 +142,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 hitDirection = (Vector2) jumpPoint.position - rb.position;
 
-        GetComponent<Collider2D>().enabled = false;
-        RaycastHit2D hit = Physics2D.Raycast(jumpPoint.position, hitDirection, 2f);
-        GetComponent<Collider2D>().enabled = true;
+      //  GetComponent<Collider2D>().enabled = false;
+        RaycastHit2D hit = Physics2D.Raycast(jumpPoint.position, hitDirection, maxDistanceForJump);
+       // GetComponent<Collider2D>().enabled = true;
 
         if (hit.collider == null)
         {

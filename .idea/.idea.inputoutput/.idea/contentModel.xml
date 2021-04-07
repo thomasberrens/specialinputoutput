@@ -234,6 +234,17 @@
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerShoot.cs" t="Include" />
           </e>
+          <e p="Scene" t="Include">
+            <e p="SwitchScene.cs" t="Include" />
+          </e>
+          <e p="Tutorial" t="Include">
+            <e p="Dialogue" t="Include">
+              <e p="Dialogue.cs" t="Include" />
+              <e p="DialogueManager.cs" t="Include" />
+              <e p="DialogueTrigger.cs" t="Include" />
+            </e>
+            <e p="Tutorial.cs" t="Include" />
+          </e>
           <e p="Values.cs" t="Include" />
         </e>
       </e>

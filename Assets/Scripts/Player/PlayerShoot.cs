@@ -20,6 +20,7 @@ public class PlayerShoot : MonoBehaviour
     private ArrayList shootMap = new ArrayList();
 
     public UnityEvent wantsToShoot;
+    public UnityEvent PlayerShootEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
                     Debug.Log("Target is null");
                     return;
                 }
-
+                PlayerShootEvent?.Invoke();
                 Shoot();
             }
         }
@@ -82,7 +83,7 @@ public class PlayerShoot : MonoBehaviour
             Instantiate(prefabBullet, shootPoint.position, Quaternion.identity) as GameObject;
         timestamp = Time.time + timeBetweenShots;
         bullet.layer = 9;
-
+        
         bullet.GetComponent<Rigidbody2D>().velocity = (currentTarget.transform.position - shootPoint.position).normalized * bulletSpeed;
     }
 }
