@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour {
     private Queue<string> sentences;
 
     private DialogueTrigger _dialogueTrigger;
+    public bool isTyping;
 
     public UnityEvent startPlayableTutorial;
     public UnityEvent spawnEnemy;
@@ -80,8 +81,14 @@ public class DialogueManager : MonoBehaviour {
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
+            
+            isTyping = true;
+            Debug.Log("Started typing");
             yield return null;
         }
+        
+        Debug.Log("Stopped typing");
+        isTyping = false;
     }
 
     void EndDialogue()

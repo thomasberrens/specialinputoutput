@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private GameObject prefabBullet;
     [SerializeField] private Transform shootPoint;
 
-    [SerializeField] private float timeBetweenShots = 0.3333f; // 3 shots per second
+    [SerializeField] private float timeBetweenShots = 0.33f; // 5 shots per second
     [SerializeField] private float timestamp;
     [SerializeField] private int bulletSpeed = 10;
     
@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
         shootPoint = gameObject.transform.Find(Values.ShootPoint);
         ai = GetComponent<ArduinoInput>();
         
-        for (int i = 50; i < 70; i++)
+        for (int i = 30; i <= 75; i++)
         {
             shootMap.Add(i);
         }
@@ -42,12 +42,14 @@ public class PlayerShoot : MonoBehaviour
         {
             if (isInIntRange(LightValue2, shootMap))
             {
+                Debug.Log("Try to shoot");
                 wantsToShoot?.Invoke();
                 if (currentTarget == null)
                 {
                     Debug.Log("Target is null");
                     return;
                 }
+                Debug.Log("Shooting at enemy");
                 PlayerShootEvent?.Invoke();
                 Shoot();
             }

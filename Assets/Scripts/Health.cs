@@ -6,22 +6,32 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField]
-    private float health = 100;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float currenthealth;
+
+    private void Start()
+    {
+        currenthealth = maxHealth;
+    }
 
     public float getHealth()
     {
-        return this.health;
+        return this.currenthealth;
+    }
+    
+    public float getMaxHealth()
+    {
+        return this.maxHealth;
     }
 
     public void setHealth(float newHealth)
     {
-        this.health = newHealth;
+        this.currenthealth = newHealth;
     }
 
     public void SubtractHealth(float subtractValue)
     {
-        this.health -= subtractValue;
+        this.currenthealth -= subtractValue;
     }
 }
 

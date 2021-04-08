@@ -46,33 +46,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        
-        for (int i = -5; i < 50; i++)
-        {
-            leftMap.Add(i);
-        }
-        
-        for (int i = 50; i < 110; i++)
-        {
-            rightMap.Add(i);
-        }
-        
-        for (int i = 0; i < 40; i++)
-        {
-            crouchMap.Add(i);
-        }
 
-        for (int i = 45; i < 55; i++)
-        {
-            idleMap.Add(i);
-        }
-        
+        addNumbersInRangeToList(0, 49, leftMap);
+        addNumbersInRangeToList(51, 120, rightMap);
+        addNumbersInRangeToList(0, 29, crouchMap);
+        addNumbersInRangeToList(45, 55, idleMap);
+
         jumpPoint = gameObject.transform.Find(Values.JumpPoint);
         shootPoint = gameObject.transform.Find(Values.ShootPoint);
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
         ai = GetComponent<ArduinoInput>();
+    }
+
+    void addNumbersInRangeToList(int lowestNumber, int HighestNumber, ArrayList list)
+    {
+        for (int i = lowestNumber; i <= HighestNumber; i++)
+        {
+            list.Add(i);
+        }
     }
 
     // Update is called once per frame
@@ -82,12 +75,8 @@ public class PlayerMovement : MonoBehaviour
         LightValue2 = ai.arduinoLightValues.L2;
 
         if (!MayMove) return;
-
-        if (isInIntRange(LightValue1, idleMap) && isInIntRange(LightValue2, idleMap))
-        {
-            horizontalmove = 0;
-            OnIdle?.Invoke();
-        } else if (isInIntRange(LightValue1, rightMap))
+        
+        if (isInIntRange(LightValue1, rightMap))
         {
             horizontalmove = 1 * runSpeed;
             OnMoveRight?.Invoke();
@@ -115,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (needToJump() && !crouch)
         {
+            if (jump) return;
             jump = true;
             animator.SetBool("isJumping", true);
             OnJump?.Invoke();
@@ -131,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
     public void onLand()
     {
         animator.SetBool("isJumping", false);
+        jump = false;
     }
 
     public void onCrouching(bool isCrouching)
@@ -142,9 +133,9 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 hitDirection = (Vector2) jumpPoint.position - rb.position;
 
-      //  GetComponent<Collider2D>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
         RaycastHit2D hit = Physics2D.Raycast(jumpPoint.position, hitDirection, maxDistanceForJump);
-       // GetComponent<Collider2D>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
 
         if (hit.collider == null)
         {

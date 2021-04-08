@@ -5,11 +5,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.inputoutput/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FinishedTutorial.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FinishedTutorial.unity.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayableTutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayableTutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/EnemyFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/EnemyFinder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Dialogue/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Dialogue/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Tutorial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/Tutorial.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Values.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Values.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
@@ -22,9 +28,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Healthbar/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerShoot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Health.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ArduinoInput/Test.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/LightBar/LightBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyShoot.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,14 +64,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager/EventManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Animation/Scripts/EndOfDeath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/Test.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Death/DeathAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Death/OnDeath.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/EnemyFinder.cs" />
         <option value="$PROJECT_DIR$/Assets/Animation/Scripts/DeathAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AbstractHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyAI.cs" />
@@ -71,11 +76,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/Dialogue.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/DialogueManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/DialogueTrigger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShoot.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Bullet.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/Dialogue/DialogueManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Values.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Scene/SwitchScene.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/Dialogue/DialogueManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Health.cs" />
+        <option value="$PROJECT_DIR$/Assets/HealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Healthbar/HealthBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ArduinoInput/ArduinoInput.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Values.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerShoot.cs" />
+        <option value="$PROJECT_DIR$/Assets/LightBar/LightBar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/EnemyFinder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Tutorial/Tutorial.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       </list>
@@ -134,7 +146,8 @@
       <workItem from="1617272184680" duration="5575000" />
       <workItem from="1617525393006" duration="5882000" />
       <workItem from="1617715648212" duration="17048000" />
-      <workItem from="1617807215233" duration="10830000" />
+      <workItem from="1617807215233" duration="10952000" />
+      <workItem from="1617895416139" duration="12803000" />
     </task>
     <servers />
   </component>
@@ -161,9 +174,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="618" y="139" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1615465297270" />
-    <state x="576" y="359" width="672" height="678" key="search.everywhere.popup" timestamp="1615374952511">
+    <state x="576" y="359" width="672" height="678" key="search.everywhere.popup" timestamp="1617903666885">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="576" y="359" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1615374952511" />
+    <state x="576" y="359" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617903666885" />
   </component>
 </project>

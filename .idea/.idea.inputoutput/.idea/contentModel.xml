@@ -212,6 +212,12 @@
             <e p="UnityReferenceHelper.cs" t="Include" />
           </e>
         </e>
+        <e p="Healthbar" t="Include">
+          <e p="HealthBar.cs" t="Include" />
+        </e>
+        <e p="LightBar" t="Include">
+          <e p="LightBar.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
           <e p="2D-Character-Controller-master" t="Include">
             <e p="CharacterController2D.cs" t="Include" />

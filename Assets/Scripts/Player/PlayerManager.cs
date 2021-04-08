@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -10,11 +11,18 @@ public class PlayerManager : MonoBehaviour
     private PlayerMovement _playerMovement;
     private PlayerShoot _playerShoot;
     private Animator _animator;
+    private ArduinoInput _arduinoInput;
 
     private Rigidbody2D rb;
 
+    private int lightValue1;
+    private int lightValue2;
+
     public UnityEvent OnHurtEvent;
     public UnityEvent OnPlayerDeathEvent;
+    public UnityEvent lightValue1Update;
+    public UnityEvent lightValue2Update;
+    
     void Start()
     {
         _enemyFinder = GetComponent<EnemyFinder>();
@@ -42,8 +50,10 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
+        _arduinoInput = GetComponent<ArduinoInput>();
         
         _playerShoot.wantsToShoot.AddListener(SetTargetForShooting);
+        OnPlayerDeathEvent.AddListener(OnDeath);
     }
 
     // Update is called once per frame
@@ -54,7 +64,41 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.Log(test.gameObject.name);
         }
+
+        setLightValue1();
+        
+        
+        setLightValue2();
     }
+
+    // TODO try to refactor this code when i have enough time
+    private void setLightValue1()
+    {
+        lightValue1Update?.Invoke();
+        lightValue1 = _arduinoInput.arduinoLightValues.L1;
+    }
+    
+    private void setLightValue2()
+    {
+        lightValue2Update?.Invoke();
+        lightValue2 = _arduinoInput.arduinoLightValues.L2;
+    }
+
+
+    public int GetLightValue1()
+    {
+        return lightValue1;
+    }
+    public int GetLightValue2()
+    {
+        return lightValue2;
+    }
+
+    public void OnDeath()
+    {
+        SceneManager.LoadScene(Values.DeathScene);
+    }
+    
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -84,17 +128,18 @@ public class PlayerManager : MonoBehaviour
 
     private void SetTargetForShooting()
     {
+        Debug.Log("Setting target");
+        Debug.Log("Target = " + _enemyFinder.GetNearestTarget());
         _playerShoot.SetTarget(_enemyFinder.GetNearestTarget());
     }
     
     private IEnumerator handleHurtAnimation()
     {
-        Debug.Log("Handling hurt");
+        
         _animator.SetBool(Values.HurtAnimation, true);
 
         yield return new WaitForSeconds(0.3f);
         
         _animator.SetBool(Values.HurtAnimation, false);
-        Debug.Log("End of hurt animation");
     }
 }

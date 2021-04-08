@@ -8,6 +8,8 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject _playerObject;
     [SerializeField] private GameObject _dialogueManagerObject;
     [SerializeField] private GameObject _enemyObject;
+    [SerializeField] private float timeBetweenDialogue = 30f; // 3 seconds
+    private float timestamp;
 
     private PlayerMovement _playerMovement;
     private DialogueManager _dialogueManager;
@@ -18,7 +20,6 @@ public class Tutorial : MonoBehaviour
     private bool didCrouch;
     private bool didJump;
     private bool didShoot;
-    
 
     private bool startTutorial;
     // Start is called before the first frame update
@@ -56,12 +57,17 @@ public class Tutorial : MonoBehaviour
             // switch scene
             SceneManager.LoadScene(Values.FinishedTutorialScene);
         }
+
     }
     
     private void activateRight()
     {
-        didGoRight = true;
+        if (Time.time <= timestamp) return;
+        if (_dialogueManager.isTyping) return;
         
+        timestamp = Time.time + timeBetweenDialogue;
+        didGoRight = true;
+
         Debug.Log("First time right");
         _playerMovement.OnMoveRight.RemoveListener(activateRight);
         _dialogueManager.DisplayNextSentence();
@@ -71,6 +77,10 @@ public class Tutorial : MonoBehaviour
     {
         if (!didGoRight) return;
         
+        if (Time.time <= timestamp) return;
+        if (_dialogueManager.isTyping) return;
+        
+        timestamp = Time.time + timeBetweenDialogue;
         didGoLeft = true;
         
         Debug.Log("First time left");
@@ -82,7 +92,10 @@ public class Tutorial : MonoBehaviour
     private void activateCrouch()
     {
         if (!didGoLeft) return;
-
+        if (Time.time <= timestamp) return;
+        if (_dialogueManager.isTyping) return;
+        
+        timestamp = Time.time + timeBetweenDialogue;
         didCrouch = true;
         Debug.Log("First time crouch");
         _playerMovement.OnCrouch.RemoveListener(activateCrouch);
@@ -93,6 +106,10 @@ public class Tutorial : MonoBehaviour
     private void activateJump()
     {
         if (!didCrouch) return;
+        if (Time.time <= timestamp) return;
+        if (_dialogueManager.isTyping) return;
+        
+        timestamp = Time.time + timeBetweenDialogue;
         didJump = true;
         Debug.Log("First time jump");
         _playerMovement.OnJump.RemoveListener(activateJump);
@@ -102,11 +119,16 @@ public class Tutorial : MonoBehaviour
 
     private void spawnEnemy()
     {
+        if (Time.time <= timestamp) return;
         _enemyObject.active = true;
     }
     
     private void shootForFirstTime()
     {
+        if (Time.time <= timestamp) return;
+        if (_dialogueManager.isTyping) return;
+        
+        timestamp = Time.time + timeBetweenDialogue;
         didShoot = true;
         Debug.Log("First time shoot");
         _dialogueManager.DisplayNextSentence();
@@ -117,6 +139,7 @@ public class Tutorial : MonoBehaviour
     {
         startTutorial = true;
         _playerMovement.MayMove = true;
+        timestamp = Time.time + timeBetweenDialogue;
     }
     
     

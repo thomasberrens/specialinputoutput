@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class EnemyFinder : MonoBehaviour
 {
-    private ArrayList enemyObjects;
+    private ArrayList enemyObjects = new ArrayList();
     private ArrayList removalCache;
     
     [SerializeField] private Transform shootPoint;
     // Start is called before the first frame update
     void Start()
     {
-        this.enemyObjects = new ArrayList();
-        this.removalCache = new ArrayList();
-        AddObjectsToList();
+        //   AddObjectsToList();
         shootPoint = gameObject.transform.Find(Values.ShootPoint);
     }
 
@@ -29,7 +27,7 @@ public class EnemyFinder : MonoBehaviour
                 this.enemyObjects.Remove(potentialTarget);
                 continue;
             }
-              if (!CanHitEnemy(potentialTarget))
+            if (!CanHitEnemy(potentialTarget))
              {
                   Debug.Log("Found a near enemy, but it is impossible to shoot him");
                   continue;
@@ -46,11 +44,15 @@ public class EnemyFinder : MonoBehaviour
         return bestTarget;
     }
 
-    private void AddObjectsToList()
+    private void Awake()
     {
-        foreach (GameObject enemyObject in GameObject.FindGameObjectsWithTag(Values.EnemyTag))
+        foreach (GameObject enemyObject in FindObjectsOfType<GameObject>())
         {
-            this.enemyObjects.Add(enemyObject);
+            if (enemyObject.tag.Equals(Values.EnemyTag))
+            {
+                Debug.Log("Found enemy with tag: " + enemyObject.name);
+                this.enemyObjects.Add(enemyObject);
+            }
         }
     }
     

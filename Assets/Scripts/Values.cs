@@ -14,5 +14,5 @@
         PlayableTutorialScene = "PlayableTutorial",
         FinishedTutorialScene = "FinishedTutorial",
         GameScene = "Game",
-        DeathScene = "DeathScene";
+        DeathScene = "DeathScreen";
 }
