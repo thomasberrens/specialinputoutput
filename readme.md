@@ -6,11 +6,6 @@ Team #
 
 ## Ontwerp
 Het ontwerp van mijn game is dat je een vos speelt die aangevallen word door vijanden, het is aan de speler om zijn vijanden te verslaan en het eindpunt te bereiken.
-voorbeeld
-* Wiring diagram:
-  * https://docs.google.com/document/d/1IAUqghA4gxy9PVatDxPmvc9U1wlw-KkZWbvZflvZTJ4/edit?usp=sharing
-* Video
-  * https://photos.app.goo.gl/cOtf9R4Dhzd4H5LR2
 
 ## Portfolio
 Zet hier de links neer naar jullie documentatie.
