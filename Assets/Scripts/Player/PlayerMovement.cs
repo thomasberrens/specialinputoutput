@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         controller = GetComponent<CharacterController2D>();
         animator = GetComponent<Animator>();
-        ai = GetComponent<ArduinoInput>();
+        ai = GameObject.FindWithTag(Values.ArduinoInputManager).GetComponent<ArduinoInput>();
     }
 
     void addNumbersInRangeToList(int lowestNumber, int HighestNumber, ArrayList list)

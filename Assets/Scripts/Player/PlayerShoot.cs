@@ -25,7 +25,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         shootPoint = gameObject.transform.Find(Values.ShootPoint);
-        ai = GetComponent<ArduinoInput>();
+        ai = GameObject.FindWithTag(Values.ArduinoInputManager).GetComponent<ArduinoInput>();
         
         for (int i = 30; i <= 75; i++)
         {

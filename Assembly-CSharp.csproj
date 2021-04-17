@@ -64,14 +64,15 @@
      <Compile Include="Assets\Scripts\ArduinoInput\ArduinoInput.cs" />
      <Compile Include="Assets\Scripts\2D-Character-Controller-master\CharacterController2D.cs" />
      <Compile Include="Assets\Scripts\Tutorial\Dialogue\DialogueManager.cs" />
+     <Compile Include="Assets\LightBar\LightBar.cs" />
      <Compile Include="Assets\Scripts\Player\EnemyFinder.cs" />
+     <Compile Include="Assets\Healthbar\HealthBar.cs" />
      <Compile Include="Assets\Scripts\Scene\SwitchScene.cs" />
      <Compile Include="Assets\Scripts\Tutorial\Dialogue\DialogueTrigger.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyGFX.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyShoot.cs" />
      <Compile Include="Assets\Scripts\Enemy\Bullet.cs" />
-     <Compile Include="Assets\Healthbar\HealthBar.cs" />
-     <Compile Include="Assets\LightBar\LightBar.cs" />
+     <Compile Include="Assets\Scripts\Background\TimeBackground.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/unity/inputoutput/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

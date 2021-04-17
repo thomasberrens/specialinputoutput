@@ -21,7 +21,7 @@ public class LightBar : MonoBehaviour
         _playerObject = GameObject.FindWithTag(Values.PlayerTag);
 
         _playerManager = _playerObject.GetComponent<PlayerManager>();
-        _lightValues = _playerObject.GetComponent<ArduinoInput>();
+        _lightValues = GameObject.FindWithTag(Values.ArduinoInputManager).GetComponent<ArduinoInput>();
 
         if (LightNumber == 1)
         {

@@ -226,6 +226,9 @@
             <e p="ArduinoInput.cs" t="Include" />
             <e p="Test.cs" t="Include" />
           </e>
+          <e p="Background" t="Include">
+            <e p="TimeBackground.cs" t="Include" />
+          </e>
           <e p="Enemy" t="Include">
             <e p="Bullet.cs" t="Include" />
             <e p="EnemyAI.cs" t="Include" />

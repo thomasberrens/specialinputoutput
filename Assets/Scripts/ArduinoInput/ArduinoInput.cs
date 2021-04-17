@@ -20,7 +20,7 @@ public class ArduinoInput : MonoBehaviour {
 
     private SerialPort stream;
 
-    public Pair arduinoLightValues = new Pair(0, 0);
+    public Pair arduinoLightValues = new Pair(0, 0, "");
     public ArrayList list = new ArrayList();
 
     void Start(){
@@ -91,10 +91,10 @@ public class ArduinoInput : MonoBehaviour {
         string[] split = str.Split(';');
         if(!CheckSplitStringValues(split)){
             //Debug.LogError("Splitting Error");
-            return new Pair(0, 0);
+            return new Pair(0, 0, "");
         }
      //   Debug.Log(str);
-        return new Pair(int.Parse(split[0]), int.Parse(split[1]));
+        return new Pair(int.Parse(split[0]), int.Parse(split[1]), split[2]);
     }
 
     private bool CheckSplitStringValues(string[] stra){
@@ -113,8 +113,10 @@ public class ArduinoInput : MonoBehaviour {
 public struct Pair{
     public int L1;
     public int L2;
-    public Pair(int L1, int L2){
+    public string timeOfDay;
+    public Pair(int L1, int L2, string time){
         this.L1 = L1;
         this.L2 = L2;
+        this.timeOfDay = time;
     }
 }

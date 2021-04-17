@@ -14,5 +14,6 @@
         PlayableTutorialScene = "PlayableTutorial",
         FinishedTutorialScene = "FinishedTutorial",
         GameScene = "Game",
-        DeathScene = "DeathScreen";
+        DeathScene = "DeathScreen",
+        ArduinoInputManager = "ArduinoInput";
 }

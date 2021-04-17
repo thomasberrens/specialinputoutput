@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerMovement = GetComponent<PlayerMovement>();
-        _arduinoInput = GetComponent<ArduinoInput>();
+        _arduinoInput = GameObject.FindWithTag(Values.ArduinoInputManager).GetComponent<ArduinoInput>();
         
         _playerShoot.wantsToShoot.AddListener(SetTargetForShooting);
         OnPlayerDeathEvent.AddListener(OnDeath);
