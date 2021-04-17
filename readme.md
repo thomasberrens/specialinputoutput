@@ -6,7 +6,10 @@ Team #
 
 ## Ontwerp
 Het ontwerp van mijn game is dat je een vos speelt die aangevallen word door vijanden, het is aan de speler om zijn vijanden te verslaan en het eindpunt te bereiken.
+<<<<<<< HEAD
 voorbeeld
+=======
+>>>>>>> 5608f50b123912c315b3b6bec20d8f362d9f922f
 
 ## Portfolio
 Zet hier de links neer naar jullie documentatie.
